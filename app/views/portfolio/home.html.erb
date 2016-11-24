@@ -44,7 +44,7 @@
 
       <div class="content-item">
         <div class="content-icon">
-          <a href="resume">
+          <a href="#">
             <i class="fa fa-file-pdf-o fa-3x"></i>
           </a>
         </div>
@@ -289,6 +289,13 @@
 </div> <!-- >.doc-browser -->
 
 <script>
+
+  $('.doc-browser').draggable({
+    start: function(event, ui) {}
+  });
+
+  $('.doc-browser').resizable();
+
   $(document).ready(function() {
     // Color variables for sidebar list items
     var listNorm = '#CACDD1';
