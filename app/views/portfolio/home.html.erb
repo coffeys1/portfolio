@@ -44,7 +44,7 @@
 
       <div class="content-item">
         <div class="content-icon">
-          <a href="#">
+          <a data-toggle="modal" data-target="#pdf-modal">
             <i class="fa fa-file-pdf-o fa-3x"></i>
           </a>
         </div>
@@ -288,13 +288,46 @@
 
 </div> <!-- >.doc-browser -->
 
+<div class="modal fade document" role="dialog" id="pdf-modal">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+      </div>
+      <div class="modal-body">
+        <p>Some text in the modal.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
 <script>
+
+  function setMaxWidth(elem, max) {
+    $( elem ).css( "maxWidth", ( max + "px" ) )
+  }
+
+  $('.sidebar-folder-list').height($('.main-content-view').height());
 
   $('.doc-browser').draggable({
     start: function(event, ui) {}
   });
 
-  $('.doc-browser').resizable();
+  /*
+  $('.doc-browser').resizable({
+    alsoResize: '.window-content-view, .sidebar-folder-list'
+  });
+  */
+
+  $( '.doc-browser' ).bind( "resize", setMaxWidth('.sidebar-folder-list', 125) );
+
 
   $(document).ready(function() {
     // Color variables for sidebar list items

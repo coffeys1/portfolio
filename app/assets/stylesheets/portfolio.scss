@@ -48,6 +48,8 @@ body,html {
 .doc-browser {
   width: 600px;
   height: 400px;
+  min-width: 300px;
+  min-height: 200px;
   margin: 0 auto;
   margin-top: 50px;
   background-color: $flat-clouds;
@@ -106,8 +108,10 @@ body,html {
 
     .sidebar-folder-list {
       background-color: $sidebar-color;
-      //height: 100%;
       width: 125px;
+      max-width: 125px;
+      min-width: 110px;
+      min-height: 200px;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
