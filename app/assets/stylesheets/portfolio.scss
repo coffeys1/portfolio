@@ -28,7 +28,8 @@ $ms-word-color: #2A5699;
 
 body,html {
   background-color: #2980b9 !important;
-  padding-top: 20px;
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
 
 .min-window {
@@ -47,9 +48,9 @@ body,html {
 
 .doc-browser {
   width: 600px;
-  height: 400px;
+  height: auto;
+  min-height: 400px;
   min-width: 300px;
-  min-height: 200px;
   margin: 0 auto;
   margin-top: 50px;
   background-color: $flat-clouds;
@@ -199,25 +200,22 @@ body,html {
 
 }//>.doc-browser
 
-.resume-heading {
+.document {
   margin: 0 auto;
   width: 70%;
-  height: 20%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  background-color: $flat-asbestos;
-  padding-left: 20px;
+  height: 1000px;
+  background-color: rgba(236, 240, 241,0.9);
+  padding: 10px;
+  box-shadow: 5px 5px 33px rgba(0, 0, 0, 0.73);
 
-  #resume-title {
-    color: $flat-clouds;
-    margin-bottom: 20px;
-    flex-grow: 7;
-    text-align: center;
-  }
-
-  a {
-    flex-grow: 1;
+  .doc-title {
+    margin: 0 auto;
+    justify-content: center;
+    h3 {
+      color: #2c3e50;
+      text-align: center;
+      font-weight: lighter;
+      //-webkit-font-smoothing: antialiased;
+    }
   }
 }
