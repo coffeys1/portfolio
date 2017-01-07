@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   root 'portfolio#home'
-  get 'portfolio/resume' => 'portfolio#resume'
+  get 'resume/show' => 'resume#show'
   get 'portfolio/home' => 'portfolio#home'
 
 end
