@@ -51,7 +51,7 @@
 
   <!-- About -->
   <div class="main-content-view" id="about-content" style="display:none;">
-    <%= render 'samples' %>
+    <%= render 'about' %>
   </div>
 
 </div>
@@ -98,18 +98,6 @@
       } else if ($(this).attr('id') == 'about-me') {
         $('#about-content').fadeIn(500);
       }
-    });
-
-
-    $('.w-min').click(function() {
-      $('.doc-browser').hide(500);
-      $('.min-window').delay(300).show(200);
-    });
-
-
-    $('.min-window').click(function() {
-      $(this).hide();
-      $('.doc-browser').show(600);
     });
   });
 

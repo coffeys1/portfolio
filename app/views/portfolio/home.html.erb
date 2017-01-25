@@ -11,10 +11,28 @@
 
 <script>
 
-  $('.sidebar-folder-list').height($('.main-content-view').height());
+    $(document).ready(function() {
+      makeBrowserDraggable();
 
-  $('.doc-browser').draggable({
-    start: function(event, ui) {}
-  });
+      // center the window
+      var center = $(document).width()/2 - $('.doc-browser').width()/2;
+      $('.doc-browser').css('left', center);
+      console.log('Document width: ' + $(document).width());
+      console.log('Center: ' + center);
+
+    });
+
+    // set the height of the window sidebar
+    $('.sidebar-folder-list').height($('.main-content-view').height());
+
+    // click action for the minimize button
+    $('.w-min').click(function() {
+      minimizeWindow();
+    });
+
+    // click action for the maximize button
+    $('.w-max').click(function() {
+      maximizeWindow();
+    });
 
 </script>
