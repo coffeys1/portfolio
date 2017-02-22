@@ -32,6 +32,29 @@ body,html {
   height: 100%;
 }
 
+@keyframes PULL-DOWN {
+  0% {
+    top: -100%;
+    opacity: 0;
+  }
+  50% {
+    top: 20%;
+  }
+  100% {
+    top: 10%;
+    opacity: 1;
+  }
+}
+
+@mixin pull-down($anim-name) {
+  animation: $anim-name;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
 .min-window {
   display: none;
   width: 100px;
@@ -53,7 +76,7 @@ body,html {
   position: fixed;
   background-color: $flat-clouds;
   box-shadow: 5px 5px 33px rgba(0, 0, 0, 0.73);
-
+  @include pull-down(PULL-DOWN);
   .window-bar {
     height: 35px;
     padding: 0;
