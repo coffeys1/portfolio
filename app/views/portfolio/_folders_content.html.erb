@@ -16,22 +16,12 @@
 
   <!-- Folder List View -->
   <div class="sidebar-folder-list">
-    <div class="folder-list-item" id="docs">
-      <i class="fa fa-folder-o"></i>
-      <p>Documents</p>
-    </div>
-    <div class="folder-list-item" id="projects">
-      <i class="fa fa-desktop"></i>
-      <p>Projects</p>
-    </div>
-    <div class="folder-list-item" id="samples">
-      <i class="fa fa-code"></i>
-      <p>Samples</p>
-    </div>
-    <div class="folder-list-item" id="about-me">
-      <i class="fa fa-user-circle-o"></i>
-      <p>About Me</p>
-    </div>
+    <% @folders.each do |f| %>
+        <div class="folder-list-item">
+          <i class="<%= f.icon %>"></i>
+          <p><%= f.title %></p>
+        </div>
+    <% end %>
   </div> <!-- >.sidebar-folder-list -->
 
   <!-- Documents -->

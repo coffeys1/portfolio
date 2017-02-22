@@ -45,6 +45,41 @@ body,html {
     opacity: 1;
   }
 }
+/*
+@keyframes over-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@mixin rotate-settings {
+  animation: over-rotate;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+*/
+
+a.settings {
+  position: absolute;
+  cursor: pointer;
+  top: 30px;
+  right: 30px;
+  color: $flat-clouds;
+  opacity: 0.7;
+  transition: opacity 0.25s linear, transform 0.5s ease-in-out, scale 0.5s ease-in-out;
+  &:hover {
+    transform: rotate(360deg) scale(1.2,1.2);
+    opacity: 1.0;
+    color: $flat-clouds;
+    filter: drop-shadow(0px 0px 5px rgba(0,0,0,0.7));
+  }
+}
 
 @mixin pull-down($anim-name) {
   animation: $anim-name;

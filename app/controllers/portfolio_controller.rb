@@ -3,7 +3,7 @@ class PortfolioController < ApplicationController
   require "browser"
 
   def home
-    # static home page for now
+    @folders = Folder.all
   end
 
   def resume
