@@ -11,10 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170222060917) do
+ActiveRecord::Schema.define(version: 20170226014707) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "content_items", force: :cascade do |t|
+    t.string   "name"
+    t.string   "icon"
+    t.string   "description"
+    t.string   "linkto"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "folder_id"
+  end
+
+  add_index "content_items", ["folder_id"], name: "index_content_items_on_folder_id", using: :btree
 
   create_table "folders", force: :cascade do |t|
     t.string   "title"

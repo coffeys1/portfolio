@@ -1,0 +1,10 @@
+<% items.each do |i| %>
+  <div class="content-item">
+    <div class="content-icon">
+      <i class="<%= "fa #{i.icon} fa-3x" %>"></i>
+    </div>
+    <div class="content-description">
+      <%= i.name %>
+    </div>
+  </div>
+<% end %>

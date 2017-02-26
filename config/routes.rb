@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
 
-  get 'folders/new'
+  resources :folders
+  resources :content_items
 
-  get 'folders/edit'
+  get 'newfolder' => 'folders#new'
+  post 'newfolder' => 'folders#create'
 
-  get 'folders/update'
-
-  get 'folders/delete'
+  get 'newitem' => 'content_items#new'
+  post 'newitem' => 'content_items#create'
 
   root 'portfolio#home'
   get 'resume/show' => 'resume#show'

@@ -1,37 +1,38 @@
 <a class="settings"><i class="fa fa-cog fa-3x"></i></a>
 
 <div class="doc-browser" id="folder-content">
-  <%= render 'folders_content' %>
-</div>
+  <div class="window-bar">
+    <div class="w-close w-btn">
+      <i class="fa fa-times"></i>
+    </div>
+    <div class="w-min w-btn" onclick="minimizeWindow()">
+      <i class="fa fa-minus"></i>
+    </div>
+    <div class="w-max w-btn" onclick="maximizeWindow()">
+      <i class="fa fa-plus"></i>
+    </div>
+  </div>
+  <div class="window-content-view">
 
-<div class="document" id="resume-content" hidden="true">
-  <%= render 'resume' %>
+    <div class="sidebar-folder-list">
+      <% @folders.each do |f| %>
+          <div class="<%= f == @folders.first ? "folder-list-item current" : "folder-list-item" %>">
+            <a href="<%= url_for(action: 'update_content', controller: 'portfolio') %>">
+              <i class="<%= "fa #{f.icon}" %>"></i>
+              <p><%= f.title %></p>
+            </a>
+          </div>
+      <% end %>
+    </div>
+
+    <div class="main-content-view">
+      <%= render partial: 'items', :locals => { :items => @current_folder.content_items } %>
+    </div>
+
+  </div>
 </div>
 
 <script>
-
-    $(document).ready(function() {
-      makeBrowserDraggable();
-
-      // center the window
-      var center = $(document).width()/2 - $('.doc-browser').width()/2;
-      $('.doc-browser').css('left', center);
-      console.log('Document width: ' + $(document).width());
-      console.log('Center: ' + center);
-
-    });
-
     // set the height of the window sidebar
     $('.sidebar-folder-list').height($('.main-content-view').height());
-
-    // click action for the minimize button
-    $('.w-min').click(function() {
-      minimizeWindow();
-    });
-
-    // click action for the maximize button
-    $('.w-max').click(function() {
-      maximizeWindow();
-    });
-
 </script>

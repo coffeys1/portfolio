@@ -1,0 +1,47 @@
+<div class="row resource-form">
+  <div class="col-md-4 col-md-offset-4">
+    <h2>Create New Content Item</h2>
+    <hr>
+    <%= form_for @item, url: newitem_path do |f| %>
+
+        <%= f.label :name %>
+        <%= f.text_field :name, class: 'form-control', placeholder: 'ex. resume.pdf' %>
+
+        <%= f.label :linkto, value: 'Link (optional)' %>
+        <%= f.text_field :linkto, class: 'form-control', placeholder: 'ex. www.google.com' %>
+
+        <%= f.label :description %>
+        <%= f.text_area :description, class: 'form-control' %>
+
+        <label for="folder-select">Folder</label>
+        <select name="content_item[folder_id]" class="form-control" id="folder-select">
+          <% @folders.each do |f| %>
+            <option value="<%= f.id %>"><%= f.title %></option>
+          <% end %>
+        </select>
+
+        <% icons = fa_icons %>
+        <label for="icon-select">Icon</label>
+        <p><i class="<%= "fa #{ icons[icons.keys[0]][:class] } fa-2x" %>" id="ic-preview"></i></p>
+        <select name="content_item[icon]" class="form-control" id="icon-select">
+          <% fa_icons.each do |i_key, i_val| %>
+              <option value="<%= i_val[:class] %>">
+                <%= i_val[:class] %>
+              </option>
+          <% end %>
+        </select>
+
+        <script>
+          $('#icon-select').change(function() {
+            var val = $('#icon-select option:selected').val();
+            $('#ic-preview').removeClass()
+                .addClass('fa')
+                .addClass(val)
+                .addClass('fa-2x');
+          });
+        </script>
+
+        <%= f.submit 'Create item', class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>

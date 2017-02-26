@@ -26,12 +26,6 @@ $folder-color: #F6CF74;
 $pdf-color: #E10007;
 $ms-word-color: #2A5699;
 
-body,html {
-  background-color: #2980b9 !important;
-  width: 100%;
-  height: 100%;
-}
-
 @keyframes PULL-DOWN {
   0% {
     top: -100%;
@@ -107,11 +101,10 @@ a.settings {
 .doc-browser {
   width: 600px;
   height: 400px;
-  top: 10%;
-  position: fixed;
+  margin: 0 auto;
+  margin-top: 2em;
   background-color: $flat-clouds;
   box-shadow: 5px 5px 33px rgba(0, 0, 0, 0.73);
-  @include pull-down(PULL-DOWN);
   .window-bar {
     height: 35px;
     padding: 0;
@@ -177,11 +170,15 @@ a.settings {
 
       .folder-list-item {
         padding-left: 10px;
+        background-color: transparent;
         display: flex;
         flex-direction: row;
         align-items: center;
         width: 100%;
         height: 30px;
+        &.current {
+          background-color: rgba(0,0,0,0.1);
+        }
         i {
           font-size: 12px;
           margin-right: 10px;
