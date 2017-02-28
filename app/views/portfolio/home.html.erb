@@ -1,4 +1,4 @@
-<a class="settings"><i class="fa fa-cog fa-3x"></i></a>
+<a class="settings"><i class="fa fa-cog"></i></a>
 
 <div class="doc-browser" id="folder-content">
   <div class="window-bar">
@@ -16,12 +16,11 @@
 
     <div class="sidebar-folder-list">
       <% @folders.each do |f| %>
-          <div class="<%= f == @folders.first ? "folder-list-item current" : "folder-list-item" %>">
-            <a href="<%= url_for(action: 'update_content', controller: 'portfolio') %>">
-              <i class="<%= "fa #{f.icon}" %>"></i>
-              <p><%= f.title %></p>
-            </a>
-          </div>
+        <div class="folder-list-item" id="folder-<%= f.id %>">
+          <i class="<%= "fa #{f.icon}" %>"></i>
+          <p><%= f.title %></p>
+          <input type="hidden" value="<%= f.id %>">
+        </div>
       <% end %>
     </div>
 
@@ -32,7 +31,83 @@
   </div>
 </div>
 
+
+<script>
+  /**
+   * Submit a post request by adding form and fields dynamically
+   * @param path
+   * @param params
+   * @param method
+   */
+  function post(path, params, method) {
+    method = method || "post";
+    var AUTH_TOKEN = "<%= form_authenticity_token() %>";
+    var form = document.createElement("form");
+    form.setAttribute("method", method);
+    form.setAttribute("action", path);
+    form.setAttribute("data-remote", "true");
+    for (var key in params) {
+      if (params.hasOwnProperty(key)) {
+        var hiddenField = document.createElement("input");
+        hiddenField.setAttribute("type", "hidden");
+        hiddenField.setAttribute("name", key);
+        hiddenField.setAttribute("value", params[key]);
+        form.appendChild(hiddenField);
+      }
+    }
+    var authField = document.createElement("input");
+    authField.setAttribute("type", "hidden");
+    authField.setAttribute("name", "authenticity_token");
+    authField.setAttribute("value", AUTH_TOKEN);
+    form.appendChild(authField);
+    document.body.appendChild(form);
+    form.submit();
+  }
+</script>
+
+<script>
+  $(document).ready(function() {
+    $($('.sidebar-folder-list').children()[0]).addClass('current');
+  });
+</script>
+
+<script>
+  $('.folder-list-item').click(function() {
+    $('.folder-list-item').each(function() { $(this).removeClass('current'); });
+    var folderID = $(this).find('input[type="hidden"]').val();
+    console.log("Input val: " + folderID);
+    post('/portfolio/update_content', {folder_id: folderID}, "put");
+    $(this).addClass('current');
+  });
+</script>
+
 <script>
     // set the height of the window sidebar
     $('.sidebar-folder-list').height($('.main-content-view').height());
 </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

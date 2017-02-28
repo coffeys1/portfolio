@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.6'
+gem 'rails', '5.0.0'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets
@@ -20,6 +20,8 @@ gem 'pg'
 gem 'jquery-rails'
 
 gem 'jquery-ui-rails'
+
+gem 'client_side_validations', git: 'https://github.com/DavyJonesLocker/client_side_validations', branch: 'rails5'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'

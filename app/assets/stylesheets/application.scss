@@ -32,19 +32,18 @@ body,html {
     display: flex;
     flex-direction: row;
     align-items: center;
-}
 
-.site-nav a.nav-option {
-    cursor: pointer;
-    height: 100%;
-    padding: 0.75rem;
-    color: #ecf0f1;
+    a.nav-option {
+      cursor: pointer;
+      text-decoration: none;
+      height: 100%;
+      padding: 0.75rem;
+      color: #ecf0f1;
+      &:hover {
+        background-color: lighten(#2c3e50, 5%);
+      }
+    }
 }
-
-a.nav-option:hover {
-    background-color: lighten(#2c3e50, 5%);
-}
-
 
 div.resource-form {
   h2 {

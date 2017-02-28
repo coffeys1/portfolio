@@ -7,12 +7,17 @@ class PortfolioController < ApplicationController
     @current_folder = @folders.first
   end
 
-  def resume
-    # static resume page for now
+  def update_content
+    @current_folder = Folder.find(params[:folder_id])
+    respond_to do |format|
+      format.js { render :file => '/portfolio/update_content.js.erb' }
+      format.html { render '/portfolio/home' }
+    end
+
   end
 
-  def update_content
-    
+  def resume
+    # static resume page for now
   end
 
 end

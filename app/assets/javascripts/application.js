@@ -16,6 +16,9 @@
 //= require turbolinks
 //= require_tree .
 
+/**
+ * Function to make the document window draggable
+ */
 function makeBrowserDraggable() {
     $('.doc-browser').draggable({
         handle: '.window-bar',
@@ -24,6 +27,9 @@ function makeBrowserDraggable() {
     })
 }
 
+/**
+ * Maximize the document window
+ */
 function maximizeWindow() {
     var newWid = $(document).width();
     var newHit = $(document).height();
@@ -43,6 +49,9 @@ function maximizeWindow() {
     })
 }
 
+/**
+ * Minimize the document window
+ */
 function minimizeWindow() {
     var newWid = 600;
     var newHit = 400;

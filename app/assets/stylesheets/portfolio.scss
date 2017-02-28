@@ -62,8 +62,9 @@ $ms-word-color: #2A5699;
 a.settings {
   position: absolute;
   cursor: pointer;
-  top: 30px;
-  right: 30px;
+  top: 0.3em;
+  right: 0.5em;
+  font-size: 1.3em;
   color: $flat-clouds;
   opacity: 0.7;
   transition: opacity 0.25s linear, transform 0.5s ease-in-out, scale 0.5s ease-in-out;
@@ -176,6 +177,10 @@ a.settings {
         align-items: center;
         width: 100%;
         height: 30px;
+        form {
+          display: none;
+          visibility: hidden;
+        }
         &.current {
           background-color: rgba(0,0,0,0.1);
         }
